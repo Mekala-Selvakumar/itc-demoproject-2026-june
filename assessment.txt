@@ -1,0 +1,161 @@
+Exit Test: Order Processing System Enhancement
+
+Duration  : 60 Minutes
+
+Scenario
+
+You are part of an e-commerce development team. Customers have reported that the 
+final order amount is sometimes incorrect. The application calculates discounts and shipping
+ charges based on order value and customer type.
+
+Your task is to analyze the existing code, identify issues, implement new business requirements,
+ and validate your solution using GitHub Copilot. 
+
+ 
+Files Provided
+
+OrderService.java
+
+ import java.util.List;
+
+public class OrderService {
+
+    public double calculateTotal(List<Double> items, String customerType) {
+
+        double total = 0;
+
+        for (Double item : items) {
+            total += item;
+        }
+
+        double discount = 0;
+
+        if (customerType.equals("PREMIUM")) {
+            discount = total * 0.15;
+        }
+
+        if (total > 1000) {
+            discount = total * 0.10;
+        }
+
+        double shippingCharge = 50;
+
+        if (total > 500) {
+            shippingCharge = 0;
+        }
+
+        return total - discount + shippingCharge;
+    }
+}
+ 
+ 
+Business Requirements
+
+Existing Rules
+
+* Orders above ₹500 receive free shipping.
+* PREMIUM customers receive 15% discount.
+
+ New Requirements
+
+1. PREMIUM customers get 15% discount.
+2. GOLD customers get 10% discount.
+3. SILVER customers get 5% discount.
+4. Orders above ₹1000 get an additional 10% discount.
+5. Total discount cannot exceed 20%.
+6. Invalid customer types should be handled gracefully.
+7. Empty or null order lists should not break the application.
+
+ 
+Tasks
+
+Task 1 – Code Analysis (10 Marks)
+
+Use GitHub Copilot to:
+
+* Identify bugs.
+* Identify edge cases.
+* Explain why incorrect totals may occur.
+
+Deliverable: Short list of issues found.
+
+ 
+Task 2 – Implement Fixes (20 Marks)
+
+Modify the code to satisfy all business requirements.
+Deliverable: Updated code.
+
+ 
+Task 3 – Refactor the Code (10 Marks)
+
+Improve:
+
+* Readability
+* Maintainability
+* Reusability
+
+Examples:
+
+* Separate discount calculation method.
+* Add validation methods.
+
+ 
+Task 4 – Generate Unit Tests (20 Marks)
+
+Using GitHub Copilot, generate test cases for:
+
+* PREMIUM customer
+* GOLD customer
+* SILVER customer
+* Order above ₹1000
+* Null customer type
+* Empty order list
+* Discount cap validation
+
+Deliverable: Test code and test results.
+
+ 
+Task 5 – Code Review (10 Marks)
+
+Ask Copilot to review your solution.
+
+Document:
+
+* One improvement suggested by Copilot.
+* Whether you accepted or rejected it.
+* Reason for your decision.
+
+ 
+Task 6 – Prompt Evidence (10 Marks)
+
+Submit any two prompts used during the exercise.
+
+Example:
+
+ Analyze this code and identify potential bugs, edge cases, and design issues.
+ 
+ Generate JUnit test cases for positive, negative, boundary, and null scenarios.
+ 
+ 
+
+## Evaluation Rubric
+
+| Area                     | Marks |
+| ------------------------ | ----- |
+| Problem Analysis         | 10    |
+| Bug Fix & Enhancement    | 20    |
+| Refactoring              | 10    |
+| Test Generation          | 20    |
+| Code Review              | 10    |
+| Copilot Prompt Usage     | 10    |
+| Overall Solution Quality | 20    |
+| Total                    | 100   |
+
+ Submission Template:
+
+* Updated Code
+* Test Cases
+* Copilot Prompts Used
+* Code Review Findings
+
+ 
