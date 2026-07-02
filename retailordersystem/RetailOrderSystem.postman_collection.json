@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "retail-order-system-001",
+    "name": "Retail Order Management System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Customer APIs",
+      "item": [
+        {
+          "name": "Create Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerName\": \"John Doe\",\n  \"email\": \"john@gmail.com\",\n  \"mobile\": \"9876543210\",\n  \"city\": \"Chennai\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/customers",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "8090",
+              "path": ["customers"]
+            }
+          }
+        },
+        {
+          "name": "Get Customer By Id",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8090/customers/1"
+          }
+        },
+        {
+          "name": "Get All Customers",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8090/customers"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Product APIs",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productName\": \"Laptop\",\n  \"category\": \"Electronics\",\n  \"price\": 55000,\n  \"stock\": 10\n}"
+            },
+            "url": "http://localhost:8090/products"
+          }
+        },
+        {
+          "name": "Get All Products",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8090/products"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Cart APIs",
+      "item": [
+        {
+          "name": "Add To Cart",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": 1,\n  \"productId\": 1,\n  \"quantity\": 2\n}"
+            },
+            "url": "http://localhost:8090/cart/add"
+          }
+        },
+        {
+          "name": "Get Cart By Customer",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8090/cart/1"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Order APIs",
+      "item": [
+        {
+          "name": "Place Order",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"customerId\": 1,\n  \"items\": [\n    {\n      \"productId\": 1,\n      \"quantity\": 2\n    }\n  ],\n  \"paymentMethod\": \"UPI\"\n}"
+            },
+            "url": "http://localhost:8090/orders"
+          }
+        },
+        {
+          "name": "Get Order By Id",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8090/orders/1"
+          }
+        },
+        {
+          "name": "Get Order History",
+          "request": {
+            "method": "GET",
+            "url": "http://localhost:8090/orders/history/1"
+          }
+        }
+      ]
+    }
+  ]
+}

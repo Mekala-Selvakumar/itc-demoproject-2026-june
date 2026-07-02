@@ -2,6 +2,7 @@ package com.retail.order.repository;
 
 import com.retail.order.model.Shipment;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import java.util.Optional;
 
@@ -21,5 +22,6 @@ public interface ShipmentRepository extends JpaRepository<Shipment, Long> {
 
     // ⚠️ BUG: parameter type Long does not match the actual data stored
     // in the order_id column (String order codes like "ORD-1042").
+    @Query("SELECT s FROM Shipment s WHERE s.id = :orderId")
     Optional<Shipment> findByOrderId(Long orderId);
 }
